@@ -1,10 +1,19 @@
 import os
 import sys
+from datetime import date
+from datetime import datetime
 
-from datetime import date, datetime
-from src.utils.s3_utils import upload_prediction_history
 import pandas as pd
 import streamlit as st
+
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+
+if project_root not in sys.path:
+    sys.path.append(project_root)
+
+from src.models.predict import predict
+from src.utils.s3_utils import upload_prediction_history
+
 
 # -------------------------------------------------------------------
 # Fix imports
