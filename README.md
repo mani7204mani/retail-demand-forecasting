@@ -1,8 +1,20 @@
-# 📈 Retail Demand Forecasting using XGBoost, FastAPI, Streamlit & Docker
+# 📈 Retail Demand Forecasting using Machine Learning
 
-An end-to-end Machine Learning application that predicts future retail product demand using historical sales data. The project includes a complete ML pipeline, REST API, interactive dashboard, Docker containerization, and is designed for cloud deployment on AWS.
+An end-to-end Machine Learning project for forecasting retail sales using an XGBoost Regressor. The project includes feature engineering, a FastAPI REST API, an interactive Streamlit dashboard, Docker containerization, and deployment on AWS EC2.
 
 ---
+## 🛠️ Tech Stack
+
+- Python
+- Pandas
+- NumPy
+- XGBoost
+- Scikit-Learn
+- FastAPI
+- Streamlit
+- Docker
+- AWS EC2
+- Joblib
 
 ## 🚀 Project Overview
 
@@ -123,8 +135,8 @@ retail-demand-forecasting
 
 ### Cloud
 
-- AWS EC2 *(Deployment In Progress)*
-- AWS S3 *(Planned)*
+- AWS EC2 
+- AWS S3 
 
 ---
 
@@ -263,21 +275,6 @@ Run Streamlit
 streamlit run app/dashboard.py
 ```
 
----
-
-# 📌 Future Enhancements
-
-- AWS EC2 Deployment
-- Amazon S3 Model Storage
-- CloudWatch Logging
-- AWS Lambda Retraining
-- CI/CD using GitHub Actions
-- Docker Compose
-- MLflow Experiment Tracking
-- SHAP Explainability
-- Batch Prediction using CSV Upload
-
----
 
 # 📷 Project Screenshots
 
@@ -301,23 +298,127 @@ streamlit run app/dashboard.py
 
 ---
 
-# 📈 Results
+## ✅ Project Features
 
-✔ End-to-End ML Pipeline
+✔ End-to-End Machine Learning Pipeline
 
-✔ Feature Engineering
+✔ Time-Series Feature Engineering
 
-✔ XGBoost Regression
+✔ XGBoost Regression Model
 
 ✔ FastAPI REST API
 
-✔ Streamlit Dashboard
+✔ Interactive Streamlit Dashboard
 
-✔ Dockerized Application
+✔ Swagger API Documentation
+
+✔ Docker Containerization
+
+✔ AWS EC2 Deployment
 
 ✔ Modular Project Structure
 
-✔ Production-Ready Architecture
+✔ Production-Ready Codebase
+
+---
+## ☁️ AWS EC2 Deployment
+
+The application is successfully deployed on an **AWS EC2 Ubuntu instance** using **Docker**.
+
+### Live Application
+
+```
+[http://YOUR_EC2_PUBLIC_IP:8501](http://13.232.201.186:8501/)
+```
+
+
+### Deployment Screenshot
+
+<img width="1600" height="382" alt="WhatsApp Image 2026-07-06 at 5 43 09 PM" src="https://github.com/user-attachments/assets/9fa4b554-1a90-4f01-a84c-6bab0a946964" />
+<img width="1637" height="827" alt="image" src="https://github.com/user-attachments/assets/eff396bb-cfeb-454f-8b8a-77b625b95d08" />
+<img width="1917" height="1027" alt="image" src="https://github.com/user-attachments/assets/09955703-1cb6-4420-a3f8-846091b62893" />
+
+---
+---
+
+## ⚙️ Installation
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/mani7204mani/retail-demand-forecasting.git
+cd retail-demand-forecasting
+```
+
+### Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### Activate the Virtual Environment
+
+**Windows**
+
+```bash
+venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+source venv/bin/activate
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run the Streamlit Dashboard
+
+```bash
+streamlit run app/dashboard.py
+```
+
+The dashboard will be available at:
+
+```
+http://localhost:8501
+```
+
+### Run the FastAPI Server
+
+```bash
+uvicorn src.api:app --reload
+```
+
+Swagger UI will be available at:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+### Run Using Docker
+
+Build the Docker image
+
+```bash
+docker build -t retail-demand-forecasting .
+```
+
+Run the Docker container
+
+```bash
+docker run -p 8501:8501 retail-demand-forecasting
+```
+
+The application will be available at:
+
+```
+http://localhost:8501
+```
 
 ---
 
