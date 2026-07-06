@@ -328,7 +328,7 @@ The application is successfully deployed on an **AWS EC2 Ubuntu instance** using
 ### Live Application
 
 ```
-[http://YOUR_EC2_PUBLIC_IP:8501](http://13.232.201.186:8501/)
+[http://13.232.201.186:8501](http://13.232.201.186:8501/)
 ```
 
 
