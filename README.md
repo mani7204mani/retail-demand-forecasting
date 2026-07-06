@@ -283,15 +283,21 @@ streamlit run app/dashboard.py
 
 ### Dashboard
 
-_Add screenshot here_
+<img width="1917" height="977" alt="image" src="https://github.com/user-attachments/assets/07dcae64-2f03-41fd-a4ce-d0fbd37a7673" />
+<img width="1538" height="898" alt="image" src="https://github.com/user-attachments/assets/1c8064c5-ef15-4130-8d83-2f198bce9b9b" />
+<img width="1543" height="891" alt="image" src="https://github.com/user-attachments/assets/93f0c76c-248d-4dd6-a391-ec3838880897" />
+
 
 ### Swagger API
 
-_Add screenshot here_
+<img width="1667" height="817" alt="image" src="https://github.com/user-attachments/assets/d571ee8c-2607-4302-ab42-43c789760fd1" />
+<img width="1607" height="968" alt="image" src="https://github.com/user-attachments/assets/c5e1dcd2-eb8b-42da-844a-e3f54c74922c" />
+
 
 ### Docker
 
-_Add screenshot here_
+<img width="1391" height="577" alt="image" src="https://github.com/user-attachments/assets/b2e3a7d7-5d98-46a0-b458-0fa761d605c3" />
+
 
 ---
 
