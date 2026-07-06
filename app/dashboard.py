@@ -1,7 +1,8 @@
 import os
 import sys
-from datetime import date
 
+from datetime import date, datetime
+from src.utils.s3_utils import upload_prediction_history
 import pandas as pd
 import streamlit as st
 
@@ -28,6 +29,7 @@ st.set_page_config(
 # Title
 # -------------------------------------------------------------------
 st.title("📈 Retail Demand Forecasting")
+
 st.markdown(
 """
 ### Predict future retail demand using Machine Learning.
@@ -176,13 +178,29 @@ if predict_button:
     }])
 
     prediction = predict(sample)[0]
-    st.session_state.history.append(
-    {
-        "Store": store,
-        "Item": item,
-        "Prediction": round(float(prediction), 2)
-    }
-)
+    
+    from datetime import datetime
+
+    history_file = os.path.join(project_root, "data", "prediction_history.csv")
+
+    os.makedirs(os.path.dirname(history_file), exist_ok=True)
+
+    history = pd.DataFrame([{
+        "timestamp": datetime.now(),
+        "store": store,
+        "item": item,
+        "date": selected_date,
+        "predicted_sales": round(float(prediction), 2)
+    }])
+
+    history.to_csv(
+        history_file,
+        mode="a",
+        header=not os.path.exists(history_file),
+        index=False
+    )
+
+    upload_prediction_history(history_file)
 
     with left:
 
@@ -242,15 +260,21 @@ st.divider()
 
 st.subheader("📋 Prediction History")
 
-history = pd.DataFrame(
-    st.session_state.history
-)
+history_file = os.path.join(project_root, "data", "prediction_history.csv")
 
-st.dataframe(
-    history,
-    use_container_width=True
-)
-csv = history.to_csv(index=False)
+if os.path.exists(history_file):
+    history = pd.read_csv(history_file)
+
+    st.dataframe(
+        history,
+        use_container_width=True
+    )
+
+    csv = history.to_csv(index=False)
+
+else:
+    st.info("No prediction history available.")
+    csv = ""
 
 st.download_button(
 
