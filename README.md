@@ -14,6 +14,7 @@ An end-to-end Machine Learning project for forecasting retail sales using an XGB
 - Streamlit
 - Docker
 - AWS EC2
+- AWS S3
 - Joblib
 
 ## 🚀 Project Overview
@@ -31,31 +32,32 @@ The application enables users to:
 
 ---
 
+---
+
 # 🏗️ Project Architecture
 
+```text
+                    User
+                      │
+                      ▼
+          Streamlit Web Dashboard
+                      │
+                      ▼
+              XGBoost Prediction Model
+                      │
+          ┌───────────┴───────────┐
+          │                       │
+          ▼                       ▼
+   Display Prediction      Save Prediction
+      to Dashboard           History (CSV)
+                                      │
+                                      ▼
+                              Upload to AWS S3
+                                      │
+                                      ▼
+                          Cloud Prediction Storage
 ```
-                Historical Sales Data
-                        │
-                        ▼
-                Data Preprocessing
-                        │
-                        ▼
-              Feature Engineering
-                        │
-                        ▼
-              XGBoost Regression Model
-                        │
-         ┌──────────────┴──────────────┐
-         ▼                             ▼
-     FastAPI API                 Streamlit Dashboard
-         │                             │
-         └──────────────┬──────────────┘
-                        ▼
-                   Docker Container
-                        │
-                        ▼
-                 AWS Deployment
-```
+
 
 ---
 
@@ -295,6 +297,30 @@ streamlit run app/dashboard.py
 
 <img width="1391" height="577" alt="image" src="https://github.com/user-attachments/assets/b2e3a7d7-5d98-46a0-b458-0fa761d605c3" />
 
+---
+
+# ☁️ AWS S3 Integration
+
+Every prediction generated through the Streamlit dashboard is automatically stored in an AWS S3 bucket.
+
+This enables:
+
+- Automatic prediction history backup
+- Centralized cloud storage
+- Persistent records across deployments
+- Easy retrieval and analysis of prediction logs
+### AWS S3 Bucket
+
+<img width="1917" height="962" alt="image" src="https://github.com/user-attachments/assets/29e1eb59-2052-48fb-bebf-8223dee030b9" />
+
+### Prediction History Folder
+
+<img width="1917" height="957" alt="image" src="https://github.com/user-attachments/assets/04fad017-c7b7-4c17-bf67-89b0d9308555" />
+
+
+### Stored Prediction History
+
+<img width="1911" height="958" alt="image" src="https://github.com/user-attachments/assets/326dc87c-abb6-4f88-8f44-215dfff46528" />
 
 ---
 
@@ -302,7 +328,7 @@ streamlit run app/dashboard.py
 
 ✔ End-to-End Machine Learning Pipeline
 
-✔ Time-Series Feature Engineering
+✔ Feature Engineering
 
 ✔ XGBoost Regression Model
 
@@ -310,15 +336,15 @@ streamlit run app/dashboard.py
 
 ✔ Interactive Streamlit Dashboard
 
-✔ Swagger API Documentation
-
-✔ Docker Containerization
+✔ Dockerized Deployment
 
 ✔ AWS EC2 Deployment
 
-✔ Modular Project Structure
+✔ AWS S3 Prediction History Storage
 
-✔ Production-Ready Codebase
+✔ Prediction History Download
+
+✔ Modular & Production-Ready Project Structure
 
 ---
 ## ☁️ AWS EC2 Deployment
